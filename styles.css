@@ -1,0 +1,167 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    overflow: hidden; /* Prevent scrolling while snowflakes are falling */
+    height: 100vh; /* Ensure full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align the content to the top */
+    text-align: center;
+    padding-top: 50px;
+    background: url('background.png') no-repeat center center fixed, 
+                linear-gradient(to right, black, blue); /* Image + gradient background */
+    background-size: cover; /* Ensure the background image covers the whole screen */
+}
+
+
+
+
+
+/* Top Bar with Logo */
+.top-bar {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 0;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    max-width: 150px; /* Adjust logo size */
+    height: auto;
+}
+
+/* Main Content */
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 80px; /* Adjust for space above the content */
+    color: #fff;
+}
+
+.text-container {
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, white, blue);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    background: linear-gradient(to right, white, blue);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.value {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 1rem;
+}
+
+footer {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Snowflakes Styling */
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.snowflake {
+    position: fixed;
+    top: -10%;
+    z-index: 9999;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+    pointer-events: none;
+    animation: snowflakes-shake 3s ease-in-out infinite;
+}
+
+.snowflake .inner {
+    color: #fff;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px #ffffff;
+    animation: snowflakes-fall 10s linear infinite;
+}
+
+@keyframes snowflakes-fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(110vh);
+    }
+}
+
+@keyframes snowflakes-shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(80px);
+    }
+}
+
+/* Image Styling */
+.image-container {
+    margin-top: 30px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image:hover {
+    transform: rotateY(-15deg) rotateX(-10deg) translateZ(20px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.8);
+}
